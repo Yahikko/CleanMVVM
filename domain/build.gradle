@@ -11,3 +11,14 @@ java {
 kotlin {
     jvmToolchain(18)
 }
+
+test {
+    useJUnitPlatform()
+}
+
+dependencies {
+
+    testImplementation "org.junit.jupiter:junit-jupiter:5.8.2"
+    testImplementation "org.mockito:mockito-core:4.0.0"
+    testImplementation "org.mockito.kotlin:mockito-kotlin:4.0.0"
+}
