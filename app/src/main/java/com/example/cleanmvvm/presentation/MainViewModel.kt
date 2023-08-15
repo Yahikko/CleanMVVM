@@ -17,15 +17,6 @@ class MainViewModel(
     private var resultMutableLive = MutableLiveData<String>()
     val resultLive: LiveData<String> = resultMutableLive
 
-    init {
-        Log.e("AAA", "VM created")
-    }
-
-    override fun onCleared() {
-        Log.e("AAA", "VM cleared")
-        super.onCleared()
-    }
-
     fun save(text: String) {
         val param = SaveUserNameParam(name = text)
         val result = saveUserNameUseCase.execute(param)
