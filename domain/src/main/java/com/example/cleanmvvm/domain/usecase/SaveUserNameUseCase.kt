@@ -6,6 +6,13 @@ import com.example.cleanmvvm.domain.repository.UserRepository
 class SaveUserNameUseCase(private val userRepository: UserRepository) {
 
     fun execute(param: SaveUserNameParam): Boolean {
-        return userRepository.saveName(param)
+
+        val oldUserName = userRepository.getName()
+
+        if (param.name.isEmpty() || oldUserName.firstName == param.name) {
+            return false
+        }
+
+        return userRepository.saveName(saveParam = param)
     }
 }
